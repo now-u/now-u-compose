@@ -1,0 +1,20 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: nginx-test-ingress
+  annotations:
+    kubernetes.io/ingress.class: nginx 
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+spec:
+  tls:
+    - secretName: nginx-test-ingress-james-elgar-com-tls
+      hosts:
+        - test.k3s.jameselgar.com
+  rules:
+  - host: test.k3s.jameselgar.com
+    http:
+      paths:
+        - path: /
+          backend:
+            serviceName: nginx-test-service 
+            servicePort: 80

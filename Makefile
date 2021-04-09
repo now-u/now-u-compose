@@ -20,7 +20,7 @@ k3s-install: ## Install k3s on given node ($SERVER_IP)
 	  --ip $(SERVER_IP) \
 	  --user root \
 	  --cluster \
-	  --k3s-version v1.19.1+k3s1 \
+	  --k3s-version v1.19.9+k3s1 \
 	  --k3s-extra-args '--no-deploy traefik' \
 	  --ssh-key $(HOME)/.ssh/do_rsa
 
@@ -28,7 +28,7 @@ k3s-join: ## Join NODE_IP to SERVER_IP
 	k3sup join \
 	  --server-ip  $(SERVER_IP) --ip $(NODE_IP) \
 	  --user root \
-	  --k3s-version v1.19.1+k3s1 \
+	  --k3s-version v1.19.9+k3s1 \
 	  --k3s-extra-args '--no-deploy traefik' \
 	  --ssh-key $(HOME)/.ssh/do_rsa \
 	  --server
