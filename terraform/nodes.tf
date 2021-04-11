@@ -9,7 +9,7 @@ resource "digitalocean_droplet" "servers" {
   image     = "ubuntu-20-04-x64"
   name      = "now-u-server-${count.index}"
   region    = "lon1"
-  size      = count.index <= var.master_count ? "s-2vcpu-2gb" : "s-1vcpu-1gb"
+  size      = count.index < var.master_count ? "s-2vcpu-2gb" : "s-1vcpu-1gb"
   ssh_keys  = ["e9:bf:52:42:12:f5:11:56:99:47:66:81:14:c8:ff:64"]
   vpc_uuid  = digitalocean_vpc.vpc.id
   tags      = ["now-u-nodes"]
